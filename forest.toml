@@ -1,0 +1,6 @@
+[forest]
+trees = ["trees"]
+assets = ["assets"]
+theme = "theme"
+root = "rom-0001"
+base_url = "https://www.reedmullanix.com"
