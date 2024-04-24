@@ -46,6 +46,6 @@ jobs:
           switches: -avzr --delete
           path: output/
           remote_path: ~/site/forest/
-          remote_host: reedmullanix.com
+          remote_host: 137.184.114.67
           remote_user: reedm
           remote_key: ${{ secrets.PUBLISH_SSH_KEY }}
