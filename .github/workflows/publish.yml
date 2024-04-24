@@ -39,7 +39,7 @@ jobs:
       - name: Build Forest
         run: opam exec -- forester build forest.toml
       - name: Publish
-      - uses: burnett01/rsync-deployments@7.0.1
+        uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
           path: output/
