@@ -4,12 +4,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: 🌲 Install Forester
+      - name: Install Forester
       	uses: ocaml/setup-ocaml@v2
 	with:
 	  ocaml-compiler: "5.1"
 	run: opam install forester
-      - name: 📝 Install TeX Live"
+      - name: Install TeX Live
         uses: teatimeguest/setup-texlive-action@v2
         with:
           packages: >-
@@ -32,9 +32,9 @@ jobs:
             kastrup
             spath3
             xpatch
-      - name: 🛠️ Build Forest
+      - name:  Build Forest
         run: opam exec -- forester build forest.toml
-      - name: 📕 Publish
+      - name: Publish
       - uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
