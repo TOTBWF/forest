@@ -7,6 +7,8 @@ jobs:
         with:
           submodules: true
           fetch-depth: 1
+      - name: Install System Deps
+        run: sudo apt install libev-dev
       - name: Install OCaml
         uses: ocaml/setup-ocaml@v2
         with:
