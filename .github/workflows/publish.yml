@@ -1,0 +1,45 @@
+on: [push]
+jobs:
+  rsync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: [🌲] Install Forester
+      	uses: ocaml/setup-ocaml@v2
+	with:
+	  ocaml-compiler: "5.1"
+	run: opam install forester
+      - name: [📝] Install TeX Live
+        uses: teatimeguest/setup-texlive-action@v2
+        with:
+          packages: >-
+            scheme-medium
+            standalone
+            mlmodern
+            amsfonts
+            amsmath
+            tikz-cd
+            l3packages
+            dvisvgm
+            pgf
+            etoolbox
+            mathtools
+            stmaryrd
+            newtx
+            newpx
+            xstring
+            fontaxes
+            kastrup
+            spath3
+            xpatch
+      - name: [🛠️] Build Forest
+        run: opam exec -- forester build forest.toml
+      - name: [📕] Publish
+      - uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          path: output/
+          remote_path: ~/site/forest/
+          remote_host: reedmullanix.com
+          remote_user: reedm
+          remote_key: ${{ secrets.PUBLISH_SSH_KEY }}
