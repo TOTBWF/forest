@@ -7,10 +7,11 @@ jobs:
         with:
           submodules: true
           fetch-depth: 1
-      - name: Install Forester
+      - name: Install OCaml
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: "5.1"
+      - name: Install Forester
         run: opam install forester
       - name: Install TeX Live
         uses: teatimeguest/setup-texlive-action@v2
@@ -35,7 +36,7 @@ jobs:
             kastrup
             spath3
             xpatch
-      - name:  Build Forest
+      - name: Build Forest
         run: opam exec -- forester build forest.toml
       - name: Publish
       - uses: burnett01/rsync-deployments@7.0.1
