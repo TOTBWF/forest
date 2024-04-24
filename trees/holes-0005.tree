@@ -1,0 +1,11 @@
+\title{Antisetoid morphisms}
+
+\import{holes-macros}
+
+\p{
+  A function #{f : A \to B} between [anti-setoids] #{A, B} is an \em{anti-setoid morphism}
+  if it reflects the apartness relation. We call this property \em{anti-congruence}.
+  \ol{
+    \li{Anti-congruence: For all #{x, y : A, \apart{f(x)}{f(y)} \Rightarrow \apart{x}{y}}}
+  }
+}

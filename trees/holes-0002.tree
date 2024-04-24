@@ -1,0 +1,14 @@
+\title{Apartness Relation}
+\taxon{definition}
+
+\import{holes-macros}
+
+\p{
+  A binary relation #{\#} on #{A} is an apartness relation if it satisfies the
+  following conditions:
+  \ol{
+    \li{Irreflexivity: for all #{x : A, \lnot \apart{x}{x}}}
+    \li{Symmetry: for all #{x, y : A, \apart{x}{y} \Rightarrow \apart{y}{x}}}
+    \li{Distinction: for all #{x, y, z : A, \apart{x}{z} \Rightarrow \apart{x}{z} \lor \apart{y}{z}}}
+  }
+}

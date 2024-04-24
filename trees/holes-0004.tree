@@ -1,0 +1,8 @@
+\title{Anti-Setoid}
+\taxon{definition}
+
+\import{holes-macros}
+
+\p{
+  An anti-setoid is a type #{A} equipped with an [apartness relation](holes-0002) #{\#}.
+}

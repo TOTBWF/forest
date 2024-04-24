@@ -1,0 +1,8 @@
+\title{Tight Apartness Relation}
+\taxon{definition}
+
+\import{holes-macros}
+
+\p{
+  An [apartness relation] #{\#} is \em{tight} if for all #{x, y : A, x \neq y \Rightarrow \apart{x}{y}}.
+}

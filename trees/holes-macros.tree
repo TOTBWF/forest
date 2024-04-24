@@ -1,0 +1,5 @@
+\title{macros for holes}
+
+\def\apart[x][y]{\x\, \#\, \y}
+\def\II{\mathbb{I}}
+\def\HH{\mathbb{H}}

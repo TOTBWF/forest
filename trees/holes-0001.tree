@@ -1,0 +1,81 @@
+\title{A Type Theory with Holes}
+\taxon{note}
+
+\import{holes-macros}
+
+\p{
+  \strong{The following is a very rough sketch of an idea: caveat emptor!}
+}
+
+\p{
+  Type theories like HoTT or OTT let us avoid having to deal with setoids,
+  as they have a rich enough theory of identity types. However, this is only
+  half the story: the theory of inequality is still rather poor! This becomes
+  apparent when doing constructive analysis or constructive algebra, as we
+  often need to use a stronger notion of inequality. As a concrete example,
+  #{x \neq y} is much less useful than #{\exists a. x < a < y}! This
+  leads directly to the notion of an [apartness relation](holes-0002):
+
+  \transclude{holes-0002}
+
+  Note that this definition gives us #{\apart{x}{y} \Rightarrow x \neq y}, but
+  the converse is not necessarily true: if it is, then the apartness relation
+  is called [tight](holes-0003).
+
+  \transclude{holes-0003}
+
+  Typically, we are interested in types equipped with [[apartness relations]];
+  we will call such types [[anti-setoids]].
+
+  \transclude{holes-0004}
+  \transclude{holes-0005}
+}
+
+\p{
+  \strong{Misc Thoughts}
+}
+
+\p{
+  If we had a type theory with a separate primitive hole type, then we could
+  use the constructively stronger forms of inequality for many types: for instance,
+  the hole type for functions could give us evidence that #{\exists (x : A), \apart{f(a)}{g((a))}}.
+}
+
+\p{
+  \strong{The following is a brain dump, and should be considered even sketchier!!}
+}
+
+\p{
+  In cubical, we define paths in #{A} via maps #{\II \to A} that are subject to
+  a boundary condition. This suggests that we should do something dual for holes:
+  that is, we should have a primitive type #{\HH} such that holes are defined
+  as maps \em{into} #{\HH} that are subject to boundary conditions.
+}
+
+\p{
+  Note that this is not the only possible option: there is also a "covariant"
+  notion of hole, where we look at maps #{\II \to A} that fail to have box-fillers.
+  I suspect that this perspective is less useful: by analogy, the contravariant
+  view is closer to cohomology, and the covariant one is closer to homology.
+  Typically, cohomology is nicer to work with, and I suspect that we will also
+  want a contravariant notion of hole.
+}
+
+\p{
+  This leads us to an obvious next question: what is #{\HH}? One perspective we
+  could take is that the n-spheres classify n-holes: for a 0-hole, #{\HH} is simply
+  is a pair of points, for a 1-hole #{\HH} is a circle, etc. This is somewhat
+  clunky though, and it seems like it would be better to use #{\II^n} along with
+  a designated class of coboundary formulae.
+}
+
+\p{
+  Note that we also have a sort of anti-Kan operation via the distinction condition
+  of an [[apartness relation]]: if you have a #{n}-dimensional hole in #{A}, and a
+  partial #{(n+1)}-cube in #{A}, then we can find some #{n}-face of that cube that is
+  also a hole. In other words, every box without a lid is a tube. However, it is
+  not immediately clear to me what anti-transport should be: the tricky cases
+  are things like anti-transport in pairs. Moreover, note that anti-box filling
+  seems more natural to state using the covariant formulation: it would be very
+  wise to try and figure out the contravariant anti-box filling operation.
+}

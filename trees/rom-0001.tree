@@ -1,4 +1,8 @@
 \title{The root of my forest}
-\author{rom}
+\author{reed-mullanix}
 
-\p{This is an example tree in my forest.}
+\p{
+  This website is a mix of my blog and my personal wiki.
+  To navigate, press Ctrl-K. It is made with the excellent
+  [Forester](forester) tool made by [Jon Sterling](jon-sterling).
+}
