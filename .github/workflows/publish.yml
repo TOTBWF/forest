@@ -1,14 +1,17 @@
 on: [push]
 jobs:
-  rsync:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 1
       - name: Install Forester
-      	uses: ocaml/setup-ocaml@v2
-	with:
-	  ocaml-compiler: "5.1"
-	run: opam install forester
+        uses: ocaml/setup-ocaml@v2
+        with:
+          ocaml-compiler: "5.1"
+        run: opam install forester
       - name: Install TeX Live
         uses: teatimeguest/setup-texlive-action@v2
         with:
